@@ -1,6 +1,6 @@
 from Adafruit_IO import*
 import json
-aio = Client('vhhung', 'aio_FlzO82JsJ2XGh2bCTVbfTsPCCfhJ')
+aio = Client('vhhung', 'aio_kyCW62jx8jJvl9WbnftC4YQwgvrH')
 aio2= Client('hungpham9469', 'aio_ytyr44KXjO5xLSMDC6dZqd9qBt6u')
 
 def sub(id):
@@ -20,6 +20,3 @@ def sub2(id):
 def pub2(id,data):
     test_feed = aio2.feeds(id)
     aio2.send_data(test_feed.key, data)
-
-pub2('test','{"id":"13","name":"LIGHT","data":"200","unit":""}')
-

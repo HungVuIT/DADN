@@ -1,45 +1,38 @@
 from flask import*
 from adaServer import *
-
+data = {
+    "room1":"123456",
+    "room2":"123456",
+    "room3":"123456"
+}
 app = Flask(__name__)
 
 @app.route("/")
 def main():
-    if sub('test-feed') != '0':
-        data = 'ON'
-    else:
-        data ='OFF'
-    dosang = sub2('test')
-    return render_template('index.html',mode=dosang)
+    return render_template('login.html')
 
-@app.route('/showSignUp')
-def showSignUp():
-    return render_template('signup.html')
-
-@app.route('/signUp',methods=['POST'])
-def signUp():
-
+@app.route('/check',methods=['GET', 'POST'])
+def login():
     # read the posted values from the UI
-    _name = request.form['inputName']
-    _email = request.form['inputEmail']
-    _password = request.form['inputPassword']
-
+    _user = request.form['user']
+    _password = request.form['pass']
     # validate the received values
-    if _name and _email and _password:
-        return json.dumps({'html':'<span>All fields good !!</span>'})
+    if data[_user]==_password:
+        return render_template('main.html')
     else:
-        return json.dumps({'html':'<span>Enter the required fields</span>'})
+        return render_template('login.html')
+
 
 @app.route('/on')
 def turnOn():
-    pub('test-feed','{"id":"1","name":"LED","data":"1","unit":""}')
-    dosang = sub2('test')
+    pub('led','{"id":"1","name":"LED","data":"1","unit":""}')
+    dosang = sub('light')
     return render_template('index.html',mode=dosang)
 
 @app.route('/off')
 def turnOff():
-    pub('test-feed','{"id":"1","name":"LED","data":"0","unit":""}')
-    dosang = sub2('test')
+    pub('led','{"id":"1","name":"LED","data":"0","unit":""}')
+    dosang = sub('light')
     return render_template('index.html',mode=dosang)
 
 if __name__ == "__main__":
