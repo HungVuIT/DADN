@@ -127,27 +127,14 @@
                                                 class="fa fa-upload"></i> </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="pl-4">1</td>
-                                    <td>
-                                        <h5 class="font-medium mb-0">Daniel Kristeen</h5>
-                                        <span class="text-muted">Texas, Unitedd states</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">Visual Designer</span><br>
-                                        <span class="text-muted">Past : teacher</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">daniel@website.com</span><br>
-                                        <span class="text-muted">999 - 444 - 555</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">15 Mar 1988</span><br>
-                                        <span class="text-muted">10: 55 AM</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">15 Mar 1988</span><br>
-                                    </td>
+                                {% for row in data %}
+                                    <tr>
+                                        <td>{{row[0]}}</td>
+                                        <td>{{row[1]}}</td>
+                                        <td>{{row[2]}}</td>
+                                        <td>{{row[3]}}</td>
+                                        <td>{{row[4]}}</td>
+                                    </tr>
                                     <td>
                                         <button type="button"
                                             class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
@@ -159,41 +146,7 @@
                                             class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
                                                 class="fa fa-upload"></i> </button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="pl-4">1</td>
-                                    <td>
-                                        <h5 class="font-medium mb-0">Daniel Kristeen</h5>
-                                        <span class="text-muted">Texas, Unitedd states</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">Visual Designer</span><br>
-                                        <span class="text-muted">Past : teacher</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">daniel@website.com</span><br>
-                                        <span class="text-muted">999 - 444 - 555</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">15 Mar 1988</span><br>
-                                        <span class="text-muted">10: 55 AM</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-muted">15 Mar 1988</span><br>
-                                    </td>
-                                    <td>
-                                        <button type="button"
-                                            class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                                class="fa fa-trash"></i> </button>
-                                        <button type="button"
-                                            class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                                class="fa fa-edit"></i> </button>
-                                        <button type="button"
-                                            class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                                class="fa fa-upload"></i> </button>
-                                    </td>
-                                </tr>
-
+                                    {% endfor %}
                             </tbody>
                         </table>
                     </div>

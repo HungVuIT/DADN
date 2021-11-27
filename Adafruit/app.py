@@ -1,5 +1,6 @@
 from flask import*
 from adaServer import *
+from database import *
 data = {
     "room1":"123456",
     "room2":"123456",
@@ -9,7 +10,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('login.html')
+    sql='select * from Persons'
+    data = executeQuery(sql)
+    return render_template('userManager.html',data=data)
 
 @app.route('/check',methods=['GET', 'POST'])
 def login():
