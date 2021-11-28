@@ -15,6 +15,10 @@ def Light_Turn_Off():
     test_feed = aio.feeds('bk-iot-led')
     aio.send_data(test_feed.key,'{ "id":"1", "name":"LED", "data":"0", "unit":"" }')
     
+def Fan_Turn_On_Strong():
+    test_feed = aio.feeds('bk-iot-drv')
+    aio.send_data(test_feed.key,'{ "id":"10", "name":"DRV_PWM", "data":"200", "unit":"" }')
+
 def Fan_Turn_On():
     test_feed = aio.feeds('bk-iot-drv')
     aio.send_data(test_feed.key,'{ "id":"10", "name":"DRV_PWM", "data":"100", "unit":"" }')
