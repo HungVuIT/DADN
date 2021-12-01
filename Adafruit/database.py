@@ -6,6 +6,11 @@ conn = pyodbc.connect('Driver={SQL Server};'
                       'Trusted_Connection=yes;')
 
 cursor = conn.cursor()
-def executeQuery(sql):   
+cursor = conn.cursor()
+def executeQuery(sql):   # thực hiện insert, update
+    cursor.execute(sql)
+    conn.commit()
+
+def getQuery(sql):      # thực hiện slect
     return cursor.execute(sql)
 
