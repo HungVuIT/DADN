@@ -1,11 +1,13 @@
 from flask import*
 from adaServer import *
 from database import *
+from datetime import *
 data = {
     "room1":"123456",
     "room2":"123456",
     "room3":"123456"
 }
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -38,5 +40,13 @@ def turnOff():
     dosang = sub('light')
     return render_template('index.html',mode=dosang)
 
+@app.route("/showHistory")
+def showHistory():
+    #return render_template('showHistory.html', data=Get_All_Data_From_Feed("bk-iot-led"), data2=Get_All_Data_From_Feed("bk-iot-drv"))
+    sql='select * from LightHistory;'
+    data = getQuery(sql)
+    sql2='select * from FanHistory;'
+    #datafan = getQuery(sql2)
+    return render_template('showHistory.html',data=data)
 if __name__ == "__main__":
     app.run()
