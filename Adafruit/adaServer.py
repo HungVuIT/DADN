@@ -7,14 +7,20 @@ aio= Client('hungpham9469', 'aio_ytyr44KXjO5xLSMDC6dZqd9qBt6u')
 def Led_Turn_On_Strong():
     test_feed = aio.feeds('bk-iot-led') #truyền vô key của thiết bị 
     aio.send_data(test_feed.key,'{ "id":"1", "name":"LED", "data":"2", "unit":"" }') #truyền vô data
+    sql = 'insert into LightHistory(FeedData) values(2)'
+    executeQuery(sql)
    
 def Led_Turn_On():
     test_feed = aio.feeds('bk-iot-led') 
     aio.send_data(test_feed.key,'{ "id":"1", "name":"LED", "data":"1", "unit":"" }') 
+    sql = 'insert into LightHistory(FeedData) values(1)'
+    executeQuery(sql)
     
 def Led_Turn_Off():
     test_feed = aio.feeds('bk-iot-led')
     aio.send_data(test_feed.key,'{ "id":"1", "name":"LED", "data":"0", "unit":"" }')
+    sql = 'insert into LightHistory(FeedData) values(0)'
+    executeQuery(sql)
     
 def Fan_Turn_On():
     test_feed = aio.feeds('bk-iot-drv')
