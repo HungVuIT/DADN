@@ -25,11 +25,15 @@ def Led_Turn_Off():
 def Fan_Turn_On():
     test_feed = aio.feeds('bk-iot-drv')
     aio.send_data(test_feed.key,'{ "id":"10", "name":"DRV_PWM", "data":"100", "unit":"" }')
+    sql = 'insert into FanHistory(FeedData) values(100)'
+    executeQuery(sql)
 
 def Fan_Turn_Off():
     test_feed = aio.feeds('bk-iot-drv')
     aio.send_data(test_feed.key,'{ "id":"10", "name":"DRV_PWM", "data":"0", "unit":"" }')
-  
+    sql = 'insert into FanHistory(FeedData) values(0)'
+    executeQuery(sql)
+    
 def Get_Led(): # Lấy trạng thái hiện tại của đèn led
     test_feed = aio.feeds('bk-iot-led') #key thiết bị
     data = aio.receive(test_feed.key)
