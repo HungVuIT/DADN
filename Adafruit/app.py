@@ -101,15 +101,16 @@ def ajax_delete():
 ###############           HISTORY              
 #########################################################################
 
-@app.route("/showHistory")
-def showHistory():
+@app.route("/user")
+def showLightHistory():
     #return render_template('showHistory.html', data=Get_All_Data_From_Feed("bk-iot-led"), data2=Get_All_Data_From_Feed("bk-iot-drv"))
     sql='select * from LightHistory;'
     data = getQuery(sql)
-    sql2='select * from FanHistory;'
-    #datafan = getQuery(sql2)
-    return render_template('showHistory.html',data=data)
-  
+    return render_template('user.html',data=data)
+def showFanHistory():
+    sql='select * from FanHistory;'
+    data = getQuery(sql)
+    return render_template('user.html',data2=data)
 
 @app.route('/on')
 def turnOn():
