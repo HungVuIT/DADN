@@ -306,6 +306,8 @@
                     text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
                     }     
 }
+
+
     </style>
 </head>
 
@@ -322,26 +324,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <img src="./images/free_fan_symbol.jpg" alt="fan_symbol_img" class ="img-responsive" width="100%">
-                            <label class="switch">
-                              <input type="checkbox">
-                              <span class="slider round"></span>
-                            </label>
-                            Quạt 1
-                        </div>
-                        <div class="col-6">
-                            <img src="./images/free_fan_symbol.jpg" alt="fan_symbol_img" class ="img-responsive" width="100%">
-                            <label class="switch">
-                              <input type="checkbox">
-                              <span class="slider round"></span>
-                            </label>
-                            Quạt 2
-                        </div>
+                                
 
+                                
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <img src="./images/light_bulb_symbol.png" alt="light_bulb_symbol_img" class ="img-responsive" width="100%">
+                            <img src="./images/light_bulb_symbol.png" alt="light_bulb_symbol_img" class ="img-responsive">
                             <label class="switch">
                               <input type="checkbox">
                               <span class="slider round"></span>
@@ -371,9 +361,68 @@
                     </div>
                 <button class="glow-on-hover-button" type="button" onclick="increase()">+</button>
                 </div>
+                <div class="row">
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show History</button>
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Show history</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Lịch sử bật/tắt đèn:</h4>
+                            <table class="table">
+                                <tr>
+                                    <td>Time</td>
+                                    <td>Action</td>
+                                </tr>
+                            {% for row in data %}
+                            <tr>
+                                <td>{{row[0]}} </td>
+                                {% if row[1] == 0 %}
+                                <td>Đèn tắt</td>
+                                {% elif row[1] == 1 %}
+                                <td>Đèn đỏ</td>
+                                {% elif row[1] == 2 %}
+                                <td>Đèn xanh</td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            </table>
+
+                            <h4>Lịch sử bật/tắt quạt:</h4>
+                            <table class="table">
+                                <tr>
+                                    <td>Thời gian</td>
+                                    <td>Action</td>
+                                </tr>
+                            {% for row in data2 %}
+                            <tr>
+                                <td>{{row[0]}} </td>
+                                <td>Quạt quay với tốc độ: {{row[1]}}</td>
+                            </tr>
+                            {% endfor %}
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
+    
 </body>
 <script type="text/javascript">
     function increase(){
@@ -394,6 +443,7 @@
             temperature_number[0].innerHTML = temperature;
 
     }
+
 </script>
 
 </html>
