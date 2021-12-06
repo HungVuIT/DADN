@@ -164,26 +164,11 @@
                 <!--#################################### ITEM LIST ################### -->
                 <!--#################################### LAMP ################### -->
                 <div class="LampBox">
-                    <img id="bulb" src="bulb-off.png"> <input type="button" class="myButton" value="Bulb On"
-                        onclick="bulbon()"> <input type="button" class="myButton1" value="Bulb Off" onclick="bulboff()">
-                </div>
-                <div class="LampBox">
-                    <img id="bulb" src="bulb-off.png"> <input type="button" class="myButton" value="Bulb On"
+                    <img id="bulb" src="{{ url_for('static',filename='images/bulb-off.png') }}"> <input type="button" class="myButton" value="Bulb On"
                         onclick="bulbon()"> <input type="button" class="myButton1" value="Bulb Off" onclick="bulboff()">
                 </div>
                 <!--#################################### FAN ################### -->
 
-                <div class="FanBox">
-                    <div class="svg">
-                        <img class="wings" src="https://i.ya-webdesign.com/images/fan-blades-png.png" alt="">
-                    </div>
-                    <div class="buttons">
-                        <p class="stop">Stop</p>
-                        <p class="first">1</p>
-                        <p class="second">2</p>
-                        <p class="third">3</p>
-                    </div>
-                </div>
                 <div class="FanBox">
                     <div class="svg">
                         <img class="wings" src="https://i.ya-webdesign.com/images/fan-blades-png.png" alt="">
@@ -237,7 +222,7 @@
         });
     });
     /*################################# LAMP JS ##############################33*/
-    function bulbon() { document.getElementById("bulb").src = "bulb-on.png"; document.getElementById("bulbstatus").element.innerHTML = "Bulb in On Now!"; } function bulboff() { document.getElementById("bulb").src = "bulb-off.png"; }
+    function bulbon() { document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-on.png') }}"; document.getElementById("bulbstatus").element.innerHTML = "Bulb in On Now!"; } function bulboff() { document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-off.png') }}"; }
 
 
 </script>
