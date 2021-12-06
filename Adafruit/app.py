@@ -110,6 +110,10 @@ def showHistory():
     data2 = getQuery(sql2)
     sql3='select temperature from Temperature where RoomID = 1;'
     data3 = getQuery(sql3)
+    if request.method == "POST": 
+        temp_input = request.form['input_temp']
+        sql4 = 'update Temperature set temperature =' + temp_input + 'where RoomID = 1;'
+        executeQuery(sql4)
     #print(request.form['input_temp'])
     return render_template('user.html',light_data=data, fan_data=data2, temp_data=data3)
 
