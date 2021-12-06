@@ -101,7 +101,7 @@ def ajax_delete():
 ###############           HISTORY              
 #########################################################################
 
-@app.route("/user")
+@app.route("/user", methods=["POST", "GET"])
 def showHistory():
     #return render_template('showHistory.html', data=Get_All_Data_From_Feed("bk-iot-led"), data2=Get_All_Data_From_Feed("bk-iot-drv"))
     sql='select * from LightHistory;'
