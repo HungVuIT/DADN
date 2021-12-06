@@ -22,3 +22,11 @@ VALUES
 ('Nova Otbu','tk8','123456','3'),
 ('Robinson','tk9','123456','4'),
 ('Mark robert','tk10','123456','5');
+
+create table Temperature(
+	RoomID int PRIMARY KEY NOT NULL,
+	temperature int not null default 0
+)
+
+insert into Temperature values(1, 30);
+insert into Temperature values(2, 35);
