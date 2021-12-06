@@ -183,7 +183,97 @@
             </div>
             <!--#################################### AUTO MODE and other ################### -->
             <div class="col-6 bg-info">
+                <!--############################ AUTO MODE BUTTON ########################-->
+                <button type="button" class="btn btn-info btn-lg">Auto mode</button><br>
+                <!--############################ SHOW TEMPERATURE ########################-->
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show temperature</button><br>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        Nhiệt độ phòng: 
+                        {{temp_data[0][0]}}<br>
+                        Chỉnh nhiệt độ phòng:
+                        
+                        <form action="" method="get">
+                            <label for="input_temp">Nhiệt độ: </label>
+                            <input type="text" id="input_temp" name="input_temp" placeholder="Input temp" value="1">
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
                 
+
+                <!--############################ SHOW HISTORY BUTTON ########################-->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Show History</button>
+
+                <!-- Modal -->
+                <div id="myModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Show history</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Lịch sử bật/tắt đèn:</h4>
+                        <table class="table">
+                            <tr>
+                                <td>Time</td>
+                                <td>Action</td>
+                            </tr>
+                        {% for row in light_data %}
+                        <tr>
+                            <td>{{row[0]}} </td>
+                            {% if row[1] == 0 %}
+                            <td>Đèn tắt</td>
+                            {% elif row[1] == 1 %}
+                            <td>Đèn đỏ</td>
+                            {% elif row[1] == 2 %}
+                            <td>Đèn xanh</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                        </table>
+
+                        <h4>Lịch sử bật/tắt quạt:</h4>
+                        <table class="table">
+                            <tr>
+                                <td>Thời gian</td>
+                                <td>Action</td>
+                            </tr>
+                        {% for row in fan_data %}
+                        <tr>
+                            <td>{{row[0]}} </td>
+                            <td>Quạt quay với tốc độ: {{row[1]}}</td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
             </div>
         </div>
 
