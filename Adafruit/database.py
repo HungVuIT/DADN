@@ -12,5 +12,5 @@ def executeQuery(sql):   # thực hiện insert, update
     conn.commit()
 
 def getQuery(sql):      # thực hiện slect
-    return cursor.execute(sql)
+    return cursor.execute(sql).fetchall()
 
