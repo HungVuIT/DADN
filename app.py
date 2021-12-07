@@ -237,11 +237,11 @@ def ledoff():
 def showHistory():
     # return render_template('showHistory.html', data=Get_All_Data_From_Feed("bk-iot-led"), data2=Get_All_Data_From_Feed("bk-iot-drv"))
     sql = 'select * from LightHistory;'
-    data = getQuery(sql)
+    data = getQuery(sql).fetchall()
     sql2 = 'select * from FanHistory;'
-    data2 = getQuery(sql2)
+    data2 = getQuery(sql2).fetchall()
     sql3 = 'select temperature from Temperature where RoomID = 1;'
-    data3 = getQuery(sql3)
+    data3 = getQuery(sql3).fetchall()
     if request.method == "POST":
         temp_input = request.form['input_temp']
         sql4 = 'update Temperature set temperature =' + temp_input + 'where RoomID = 1;'
