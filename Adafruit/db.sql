@@ -2,14 +2,14 @@ create database ADADB
 use ADADB
 
 CREATE TABLE Persons(
-    id int NOT NULL IDENTITY(1,1),
-    name varchar(255),
+    Id int NOT NULL IDENTITY(1,1),
+    Name varchar(255),
     tk varchar(255),
-	mk varchar(255),
-	room varchar(255),
+	mk int,
+	Room int,
     PRIMARY KEY (Id),
 );
-select * from Persons
+
 INSERT INTO Persons (Name,tk,mk,Room)
 VALUES 
 ('Cardinal','tk1','123456','1'),
@@ -23,10 +23,19 @@ VALUES
 ('Robinson','tk9','123456','4'),
 ('Mark robert','tk10','123456','5');
 
-create table Temperature(
-	RoomID int PRIMARY KEY NOT NULL,
-	temperature int not null default 0
-)
+CREATE TABLE Room(
+    Id int NOT NULL IDENTITY(1,1),
+    Room varchar(255),
+	fans int default 1,
+	lights int default 1,
+	temp int default 25,
+    PRIMARY KEY (Id),
+);
 
-insert into Temperature values(1, 30);
-insert into Temperature values(2, 35);
+INSERT INTO Room (Room,fans,lights)
+VALUES 
+('1','3','2'),
+('2','3','1'),
+('3','1','3'),
+('4','2','2'),
+('5','1','1')
