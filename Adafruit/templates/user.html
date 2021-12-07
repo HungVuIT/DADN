@@ -342,8 +342,9 @@
                 transform: rotate(1turn);
             }
         }
+
         /* BOX FOR SHOW HISTORY & TEMPERATURE CSS */
-        .button-box{
+        .button-box {
             /*margin-top: 2px;*/
             background: #f0f0f0;
             /* padding: 2em 0; */
@@ -354,7 +355,9 @@
         }
 
         /* BUTTON CSS */
-        *, *:before, *:after {
+        *,
+        *:before,
+        *:after {
             /* box-sizing: border-box; */
             margin: 0;
             padding: 0;
@@ -365,118 +368,132 @@
         }
 
         .buttons {
-        margin-top: 50px;
-        text-align: center;
-        border-radius: 30px;
+            margin-top: 50px;
+            text-align: center;
+            border-radius: 30px;
         }
 
         .blob-btn {
-        z-index: 1;
-        position: relative; 
-        padding: 20px 46px;
-        /* margin-bottom: 30px; */
-        /* text-align: center; */
-        text-transform: uppercase;
-        color: #0505A9;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: transparent;
-        outline: none;
-        border: none;
-        transition: color 0.5s;
-        cursor: pointer;
-        border-radius: 30px;
+            z-index: 1;
+            position: relative;
+            padding: 20px 46px;
+            /* margin-bottom: 30px; */
+            /* text-align: center; */
+            text-transform: uppercase;
+            color: #0505A9;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            transition: color 0.5s;
+            cursor: pointer;
+            border-radius: 30px;
         }
-        .blob-btn:before {
-        content: "";
-        z-index: 1;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        border: 2px solid #0505A9;
-        border-radius: 30px;
-        }
-        .blob-btn:after {
-        content: "";
-        z-index: -2;
-        position: absolute;
-        left: 3px;
-        top: 3px;
-        width: 100%;
-        height: 100%;
-        transition: all 0.3s 0.2s;
-        border-radius: 30px;
-        }
-        .blob-btn:hover {
-        color: #FFFFFF;
-        border-radius: 30px;
-        }
-        .blob-btn:hover:after {
-        transition: all 0.3s;
-        left: 0;
-        top: 0;
-        border-radius: 30px;
-        }
-        .blob-btn__inner {
-        z-index: -1;
-        overflow: hidden;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
-        background: #ffffff;
-        }
-        .blob-btn__blobs {
-        position: relative;
-        display: block;
-        height: 100%;
-        filter: url("#goo");
-        }
-        .blob-btn__blob {
-        position: absolute;
-        top: 2px;
-        width: 25%;
-        height: 100%;
-        background: #0505A9;
-        border-radius: 100%;
-        transform: translate3d(0, 150%, 0) scale(1.7);
-        transition: transform 0.45s;
-        }
-        @supports (filter: url("#goo")) {
-        .blob-btn__blob {
-            transform: translate3d(0, 150%, 0) scale(1.4);
-        }
-        }
-        .blob-btn__blob:nth-child(1) {
-        left: 0%;
-        transition-delay: 0s;
-        }
-        .blob-btn__blob:nth-child(2) {
-        left: 30%;
-        transition-delay: 0.08s;
-        }
-        .blob-btn__blob:nth-child(3) {
-        left: 60%;
-        transition-delay: 0.16s;
-        }
-        .blob-btn__blob:nth-child(4) {
-        left: 90%;
-        transition-delay: 0.24s;
-        }
-        .blob-btn:hover .blob-btn__blob {
-        transform: translateZ(0) scale(1.7);
-        }
-        @supports (filter: url("#goo")) {
-        .blob-btn:hover .blob-btn__blob {
-            transform: translateZ(0) scale(1.4);
-        }
-        }
-        /* END BUTTON CSS */
 
+        .blob-btn:before {
+            content: "";
+            z-index: 1;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #0505A9;
+            border-radius: 30px;
+        }
+
+        .blob-btn:after {
+            content: "";
+            z-index: -2;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s 0.2s;
+            border-radius: 30px;
+        }
+
+        .blob-btn:hover {
+            color: #FFFFFF;
+            border-radius: 30px;
+        }
+
+        .blob-btn:hover:after {
+            transition: all 0.3s;
+            left: 0;
+            top: 0;
+            border-radius: 30px;
+        }
+
+        .blob-btn__inner {
+            z-index: -1;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: #ffffff;
+        }
+
+        .blob-btn__blobs {
+            position: relative;
+            display: block;
+            height: 100%;
+            filter: url("#goo");
+        }
+
+        .blob-btn__blob {
+            position: absolute;
+            top: 2px;
+            width: 25%;
+            height: 100%;
+            background: #0505A9;
+            border-radius: 100%;
+            transform: translate3d(0, 150%, 0) scale(1.7);
+            transition: transform 0.45s;
+        }
+
+        @supports (filter: url("#goo")) {
+            .blob-btn__blob {
+                transform: translate3d(0, 150%, 0) scale(1.4);
+            }
+        }
+
+        .blob-btn__blob:nth-child(1) {
+            left: 0%;
+            transition-delay: 0s;
+        }
+
+        .blob-btn__blob:nth-child(2) {
+            left: 30%;
+            transition-delay: 0.08s;
+        }
+
+        .blob-btn__blob:nth-child(3) {
+            left: 60%;
+            transition-delay: 0.16s;
+        }
+
+        .blob-btn__blob:nth-child(4) {
+            left: 90%;
+            transition-delay: 0.24s;
+        }
+
+        .blob-btn:hover .blob-btn__blob {
+            transform: translateZ(0) scale(1.7);
+        }
+
+        @supports (filter: url("#goo")) {
+            .blob-btn:hover .blob-btn__blob {
+                transform: translateZ(0) scale(1.4);
+            }
+        }
+
+        /* END BUTTON CSS */
     </style>
 </head>
 
@@ -484,7 +501,7 @@
     <div class="container-fluid">
         <!--#################################### ROOM NAME ################### -->
         <div class="row">
-            <h1> ROOM NUMBER </h1>
+            <h1> ROOM {{room.room}} </h1>
         </div>
         <!--#################################### ROOM Function ################### -->
         <div class="row">
@@ -677,13 +694,15 @@
             <div class="row">
                 <!--#################################### ITEM LIST ################### -->
                 <!--#################################### LAMP ################### -->
+                {% for x in range(room.lights) %}
                 <div class="LampBox">
                     <img id="bulb" src="{{ url_for('static',filename='images/bulb-off.png') }}"> <input type="button"
                         class="myButton" value="Bulb On" onclick="bulbon()"> <input type="button" class="myButton1"
                         value="Bulb Off" onclick="bulboff()">
                 </div>
+                {% endfor %}
                 <!--#################################### FAN ################### -->
-
+                {% for x in range(room.fans) %}
                 <div class="FanBox">
                     <div class="svg">
                         <img class="wings" src="https://i.ya-webdesign.com/images/fan-blades-png.png" alt="">
@@ -695,14 +714,92 @@
                         <p class="third">3</p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
 
         </div>
 </body>
 <script type="text/javascript">
-    /*################################# FAN JS ##############################33*/
+    /*################################# LOAD ITEM ##############################*/
+    ledstatus = "{{ led }}";
+    fanstatus = "{{ fan }}";
 
     let wingsImg = document.querySelector(".wings");
+
+    if (ledstatus == "1" || ledstatus == "2") {
+        bulbon()
+    }
+
+    if (fanstatus == "100") {
+        wingsImg.classList.add("one");
+        wingsImg.style.animationDuration = `1s`;
+        wingsImg.style.animationPlayState = `running`;
+    }
+    else if (fanstatus == "150") {
+        wingsImg.classList.add("two");
+        wingsImg.style.animationDuration = `0.5s`;
+        wingsImg.style.animationPlayState = `running`;
+    }
+    else if (fanstatus == "200") {
+        wingsImg.classList.add("third");
+        wingsImg.style.animationDuration = `0.1s`;
+        wingsImg.style.animationPlayState = `running`;
+    }
+
+
+    /*################################# FAN JS ##############################33*/
+
+    $(function () {
+        $('.stop').click(function () {
+            $.ajax({
+                url: '/stop',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    });
+
+    $(function () {
+        $('.first').click(function () {
+            $.ajax({
+                url: '/first',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    });
+
+    $(function () {
+        $('.second').click(function () {
+            $.ajax({
+                url: '/second',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    });
+
+    $(function () {
+        $('.third').click(function () {
+            $.ajax({
+                url: '/third',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    });
 
     let btns = document.querySelectorAll(".buttons p");
 
@@ -732,12 +829,26 @@
         });
     });
     /*################################# LAMP JS ##############################*/
-    function bulbon() { document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-on.png') }}"; document.getElementById("bulbstatus").element.innerHTML = "Bulb in On Now!"; }
-    function bulboff() { document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-off.png') }}"; }
+    function bulbon() {
+        document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-on.png') }}";
+        $.ajax({
+            url: '/ledon',
+            data: $('form').serialize(),
+            type: 'POST'
+        });
+    };
+    function bulboff() {
+        document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-off.png') }}";
+        $.ajax({
+            url: '/ledoff',
+            data: $('form').serialize(),
+            type: 'POST'
+        });
+    }
 
     /*################################# AUTO JS ##############################*/
-    var st = document.getElementById("switch")
-    var tr = document.getElementById("tr")
+    var st = document.getElementById("switch");
+    var tr = document.getElementById("tr");
     function test() {
         if (st.value == "1") {
             st.value = "0";
@@ -747,7 +858,10 @@
             st.value = "1";
             tr.style.backgroundColor = "#05a7e7";
         }
-    }
+    };
+
+
+
 
 </script>
 
