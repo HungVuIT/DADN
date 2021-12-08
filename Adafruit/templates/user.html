@@ -534,9 +534,9 @@
                                 </div>
                             </div>
 
-                            <h1>Monday</h1>
-                            <span class="temp">23&deg;</span>
-                            <span class="high-low">15&deg;/ 28&deg;</span>
+                            <h1>Friday</h1>
+                            <span class="temp">{{temp}}&deg;</span>
+                            <span class="high-low">{{humid}} %</span>
                         </article>
                     </div>
                     <!--############################ SET TEMPERATURE AND SHOW HISTORY ########################-->
@@ -546,6 +546,8 @@
                             data-target="#myModal">Show
                             temperature</button><br>
                     -->
+                    <a href="chat"><span>Chat</span></a>
+
                     <div class="buttons">
                         <button class="blob-btn" data-toggle="modal" data-target="#myModal">
                             SET TEMPERATURE
@@ -849,14 +851,37 @@
     /*################################# AUTO JS ##############################*/
     var st = document.getElementById("switch");
     var tr = document.getElementById("tr");
+
+    var interval = null;
+
+
+    function auto() {
+        $.ajax({
+            url: '/auto',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function (data) {
+                if (data == "1") {
+                    document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-on.png') }}";
+                }
+                else {
+                    document.getElementById("bulb").src = "{{ url_for('static',filename='images/bulb-off.png') }}";
+                }
+            }
+        });
+    }
+
     function test() {
         if (st.value == "1") {
             st.value = "0";
             tr.style.backgroundColor = "green";
+            interval = setInterval(auto, 10000);
+            auto();
         }
         else {
             st.value = "1";
             tr.style.backgroundColor = "#05a7e7";
+            clearInterval(interval)
         }
     };
 
