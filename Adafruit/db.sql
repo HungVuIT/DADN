@@ -2,12 +2,12 @@ create database ADADB
 use ADADB
 
 CREATE TABLE Persons(
-    Id int NOT NULL IDENTITY(1,1),
-    Name varchar(255),
+    id int NOT NULL IDENTITY(1,1),
+    name varchar(255),
     tk varchar(255),
-	mk int,
-	Room int,
-    PRIMARY KEY (Id),
+	mk varchar(255),
+	room varchar(255),
+    PRIMARY KEY (id),
 );
 
 INSERT INTO Persons (Name,tk,mk,Room)
