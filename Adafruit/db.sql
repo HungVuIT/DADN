@@ -39,3 +39,41 @@ VALUES
 ('3','1','3'),
 ('4','2','2'),
 ('5','1','1')
+
+CREATE TABLE LightHistory(
+	room_id int not null,
+	time_created datetime not null DEFAULT GETDATE(),
+	feed_data int not null,
+	CONSTRAINT fk_room_id_light
+ 	FOREIGN KEY (room_id)
+ 	REFERENCES Room (Id)
+);
+
+
+CREATE TABLE FanHistory(
+	room_id int not null,
+	time_created datetime not null DEFAULT GETDATE(),
+	feed_data int not null,
+	CONSTRAINT fk_room_id_fan
+ 	FOREIGN KEY (room_id)
+ 	REFERENCES Room (Id)
+);
+
+insert into LightHistory(room_id, feed_data) values (1, 1);
+insert into LightHistory(room_id, feed_data) values (1, 0);
+insert into LightHistory(room_id, feed_data) values (1, 2);
+insert into LightHistory(room_id, feed_data) values (1, 1);
+insert into LightHistory(room_id, feed_data) values (1, 0);
+insert into LightHistory(room_id, feed_data) values (1, 2);
+insert into LightHistory(room_id, feed_data) values (2, 1);
+
+
+
+insert into FanHistory(room_id, feed_data) values (1, 1);
+insert into FanHistory(room_id, feed_data) values (1, 0);
+insert into FanHistory(room_id, feed_data) values (1, 2);
+insert into FanHistory(room_id, feed_data) values (1, 1);
+insert into FanHistory(room_id, feed_data) values (1, 0);
+insert into FanHistory(room_id, feed_data) values (1, 2);
+insert into FanHistory(room_id, feed_data) values (2, 1);
+
